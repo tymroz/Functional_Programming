@@ -11,23 +11,14 @@ fun binomial(n, k) =
         binomial_tail(n, k, 1, 1)
     end
 
-fun binomial2(n, k) =
-    let
-        fun pascalTriangleRow 0 = [1]
-            | pascalTriangleRow r =
-            let
-                val prevRow = pascalTriangleRow (r - 1)
-                fun nextElement (_, []) = [1]
-                    | nextElement ([], _) = [1]
-                    | nextElement (x::xs, y::ys) = (x + y) :: nextElement(xs, ys)
-            in
-                1 :: nextElement(prevRow, tl prevRow) @ [0]
-            end;
-
-        val triangle = List.tabulate(n + 1, pascalTriangleRow);
+fun pascal(0) = [1]
+  | pascal(n) = let
+      val prev = pascal (n-1)
     in
-        List.nth(List.nth(triangle, n), k)
+      1 :: (ListPair.map op+ (prev, tl prev)) @ [1]
     end;
+
+fun binomial2 (n, k) = List.nth (pascal n, k);
 
 fun merge(xs, []) = xs
   | merge([], ys) = ys
