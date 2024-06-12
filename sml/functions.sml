@@ -125,11 +125,11 @@ fun primes(n) =
         sieve sieveList
     end
 
-val bin1 = binomial(10, 2)
-val bin2 = binomial2(10, 2)
-val sortedList = mergeSort[4, 2, 7, 1, 5, 3, 6]
-val eq = de(10, 15)
-val fact = primeFactors(100)
-val euler1 = totient(45)
-val euler2 = totient2(45)
-val primeList = primes(100);
+val bin1 = binomial(10, 3)
+val bin2 = binomial2(10, 3)
+val sortedList = mergeSort[4, 2, 7, 1, 5, 3, 6, 8]
+val eq = de(56, 15)
+val fact = primeFactors(50)
+val primeList = primes(50)
+val euler1 = totient(100)
+val euler2 = totient2(100);
