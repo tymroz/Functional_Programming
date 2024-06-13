@@ -6,7 +6,7 @@ fun pascal(0) = [1]
   | pascal(n) = let
       val prev = pascal (n-1)
     in
-      1 :: (ListPair.map op+ (prev, tl prev)) @ [1]
+      [1] @ (ListPair.map op+ (prev, tl prev)) @ [1]
     end;
 
 fun binomial2 (n, k) = List.nth (pascal n, k);
