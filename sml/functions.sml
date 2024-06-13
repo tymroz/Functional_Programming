@@ -1,15 +1,6 @@
-fun binomial(n, k) =
-    let
-        fun binomial_tail(n, k, num, den) =
-            if k = 0 then
-                num div den
-            else if k > n then
-                0
-            else
-                binomial_tail(n - 1, k - 1, num * n, den * k)
-    in
-        binomial_tail(n, k, 1, 1)
-    end
+fun binomial (n, k) =
+    if k = 0 orelse k = n then 1
+    else binomial (n-1, k-1) + binomial (n-1, k)
 
 fun pascal(0) = [1]
   | pascal(n) = let

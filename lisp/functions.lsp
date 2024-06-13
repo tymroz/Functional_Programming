@@ -1,8 +1,6 @@
 (defun binomial (n k)
-    (labels ((binomial-tail (n k num den)
-        (cond ((= k 0) (/ num den)) ((> k n) 0)
-            (t (binomial-tail (- n 1) (- k 1) (* num n) (* den k))))))
-    (binomial-tail n k 1 1)))
+  (cond ((or (= k 0) (= k n)) 1)
+        (t (+ (binomial (- n 1) (- k 1)) (binomial (- n 1) k)))))
 
 (defun binomial2 (n k)
     (if (or (= k 0) (= k n)) 
