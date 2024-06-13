@@ -1,6 +1,4 @@
-% Filename: functions.pl
-
-% 1. mergesort(+X, -Y)
+% mergesort(+X, -Y)
 mergesort([], []).
 mergesort([X], [X]).
 mergesort(List, Sorted) :-
@@ -23,7 +21,7 @@ merge([X | Left], [Y | Right], [Y | Merged]) :-
     X > Y,
     merge([X | Left], Right, Merged).
 
-% 2. de(+A, +B, -X, -Y, -Z)
+% de(+A, +B, -X, -Y, -Z)
 de(A, B, X, Y, G) :-
     gcd_ext(A, B, G, X, Y).
 
@@ -36,7 +34,7 @@ gcd_ext(A, B, G, X, Y) :-
     X is Y1,
     Y is X1 - Q * Y1.
 
-% 3. prime_factors(+N, -X)
+% prime_factors(+N, -X)
 prime_factors(N, Factors) :-
     prime_factors(N, 2, Factors).
 
@@ -55,7 +53,7 @@ next_factor(F, NF) :-
     F > 2,
     NF is F + 2.
 
-% 4. totient(+N, -T)
+% totient(+N, -T)
 totient(N, T) :-
     findall(X, (between(1, N, X), gcd(N, X, 1)), RelativelyPrimes),
     length(RelativelyPrimes, T).
@@ -66,7 +64,7 @@ gcd(A, B, G) :-
     R is A mod B,
     gcd(B, R, G).
 
-% 5. primes(+N, -X)
+% primes(+N, -X)
 primes(N, Primes) :-
     findall(X, (between(2, N, X), is_prime(X)), Primes).
 
